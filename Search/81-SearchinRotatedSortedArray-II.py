@@ -3,30 +3,26 @@
 
 class Solution:
     def search(self, nums, target):
-        start = 0
-        end = len(nums) - 1
-        while start < end:
-            mid = (start + end) >> 1
-            if nums[mid] > nums[end]:
-                start = mid + 1
-            else:
-                end = mid
-
-        pivot = start
-        start = 0
-        end = len(nums) - 1
-        while start <= end:
-            mid = (start + end) >> 1
-            mid_pivot = (mid + pivot) % len(nums)
-            if nums[mid_pivot] == target:
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
                 return True
-            elif nums[mid_pivot] < target:
-                start = mid + 1
+            elif nums[mid] < nums[right]: 
+                if nums[mid] < target <= nums[right]:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            elif nums[mid] > nums[right]:
+                if nums[left] <= target < nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
             else:
-                end = mid - 1
-                
+                right -= 1
         return False
         
-nums = [2,5,6,0,0,1,2]
+nums = [1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1]
 target = 2
 print(Solution().search(nums, target))
