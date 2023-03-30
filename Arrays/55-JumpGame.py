@@ -1,4 +1,4 @@
-#LeetCode Problem 55. Jump Game Solution
+#LeetCode Problem 55 - Jump Game Solution
 #https://leetcode.com/problems/jump-game/
 
 class Solution:
