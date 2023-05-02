@@ -4,12 +4,7 @@
 class Solution:
     def arrayRankTransform(self, arr):
         self.quicksort(arr)
-        rank_dict = {}
-        rank = 1
-        for num in arr:
-            if num not in rank_dict:
-                rank_dict[num] = rank
-                rank += 1
+        rank_dict = {num: i+1 for i, num in enumerate(sorted(set(arr)))}
         return [rank_dict[num] for num in arr]
 
     def quicksort(self, arr):
