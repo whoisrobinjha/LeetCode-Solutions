@@ -13,7 +13,7 @@ class Solution:
                 count += 1
         return count
 
-items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
-ruleKey = "color"
-ruleValue = "silver"
-print(Solution().countMatches(items, ruleKey, ruleValue))
+items = [["shirt", "blue", "casual"], ["pants", "black", "jeans"], ["shirt", "red", "formal"], ["dress", "blue", "evening"]]
+ruleKey = "name"
+ruleValue = "casual"
+print(Solution().countMatches(items, ruleKey, ruleValue))  # Output: 1
